@@ -1,0 +1,5 @@
+FILE_NAME = "./data/external/sample.csv"
+BUCKET_NAME = "nw-juewang-s3"
+S3_OBJECT_NAME = "sample.csv"
+LOCAL_DB_WRITE_PATH = "data/sqlite_flight.db"
+LOGGING_CONFIG = "config/logging/local.conf"

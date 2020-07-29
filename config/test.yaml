@@ -1,0 +1,25 @@
+transform:
+  clean:
+    dummy:
+      - MONTH
+      - DAY_OF_MONTH
+      - DAY_OF_WEEK
+      - dep_hour
+      - OP_UNIQUE_CARRIER
+      - ORIGIN
+      - DEST
+    drop_column:
+      - ACTUAL_ELAPSED_TIME
+      - AIR_TIME
+      - DISTANCE
+      - ARR_DELAY
+      - ARR_TIME
+      - DEP_TIME
+      - CRS_DEP_TIME
+      - CRS_ARR_TIME
+      - CRS_ELAPSED_TIME
+train:
+  train_model:
+    test_size: 0.3
+    target_col: delay
+    max_depth: 10

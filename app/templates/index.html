@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <link href="static/basic.css" rel="stylesheet">
+   </head>
+   <body>
+      <h1>
+         <a href = "{{ url_for('index') }}">Flight Delay Predictor</a>
+      </h1>
+      <hr/>
+
+      <p>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">About</button>
+</p>
+<div class="row">
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
+      <div class="card card-body">
+         Get predictions of on-time performance of your flight by entering information below. The app only supports predictions for domestic flights for now.
+        </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample2">
+      <div class="card card-body">
+         This app is created by Jue Wang for his MSiA 423 Analytics Value Chain project. If you have questions, feel free to reach him at juewang2020@u.northwestern.edu
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+      <h3>Airlines<span class="badge badge-secondary"></span></h3>
+      <form action="{{ url_for('add_entry') }}" method=post class=add-entry>
+         <div class="form-check form-check-inline">
+            <input class="form-check-input" name=airline type="checkbox" id="inlineCheckbox1" value="9E">
+            <label class="form-check-label" for="inlineCheckbox1">Endeavor Air</label>
+         </div>
+         <div class="form-check form-check-inline">
+            <input class="form-check-input" name=airline type="checkbox" id="inlineCheckbox2" value="AA">
+            <label class="form-check-label" for="inlineCheckbox2">American</label>
+         </div>
+         <div class="form-check form-check-inline">
+            <input class="form-check-input" name=airline type="checkbox" id="inlineCheckbox2" value="AS">
+            <label class="form-check-label" for="inlineCheckbox2">Alaska</label>
+         </div>
+         <div class="form-check form-check-inline">
+            <input class="form-check-input" name=airline type="checkbox" id="inlineCheckbox2" value="B6">
+            <label class="form-check-label" for="inlineCheckbox2">Jetblue</label>
+         </div>
+         <div class="form-check form-check-inline">
+            <input class="form-check-input" name=airline type="checkbox" id="inlineCheckbox2" value="DL">
+            <label class="form-check-label" for="inlineCheckbox2">Delta</label>
+         </div>
+         <div class="form-check form-check-inline">
+            <input class="form-check-input" name=airline type="checkbox" id="inlineCheckbox2" value="EV">
+            <label class="form-check-label" for="inlineCheckbox2">ExpressJet</label>
+         </div>
+         <div class="form-check form-check-inline">
+            <input class="form-check-input" name=airline type="checkbox" id="inlineCheckbox2" value="F9">
+            <label class="form-check-label" for="inlineCheckbox2">Frontier</label>
+         </div>
+         </div>
+         <div class="form-check form-check-inline">
+            <input class="form-check-input" name=airline type="checkbox" id="inlineCheckbox2" value="G4">
+            <label class="form-check-label" for="inlineCheckbox2">Allegiant</label>
+         </div>
+         </div>
+         <div class="form-check form-check-inline">
+            <input class="form-check-input" name=airline type="checkbox" id="inlineCheckbox2" value="MQ">
+            <label class="form-check-label" for="inlineCheckbox2">Hawaiian</label>
+         </div>
+         <div class="form-check form-check-inline">
+            <input class="form-check-input" name=airline type="checkbox" id="inlineCheckbox2" value="NK">
+            <label class="form-check-label" for="inlineCheckbox2">Spirit</label>
+         </div>
+         <div class="form-check form-check-inline">
+            <input class="form-check-input" name=airline type="checkbox" id="inlineCheckbox2" value="OH">
+            <label class="form-check-label" for="inlineCheckbox2">PSA</label>
+         </div>
+         <div class="form-check form-check-inline">
+            <input class="form-check-input" name=airline type="checkbox" id="inlineCheckbox2" value="OO">
+            <label class="form-check-label" for="inlineCheckbox2">SkyWest</label>
+         </div>
+         <div class="form-check form-check-inline">
+            <input class="form-check-input" name=airline type="checkbox" id="inlineCheckbox2" value="UA">
+            <label class="form-check-label" for="inlineCheckbox2">United</label>
+         </div>
+         <div class="form-check form-check-inline">
+            <input class="form-check-input" name=airline type="checkbox" id="inlineCheckbox2" value="WN">
+            <label class="form-check-label" for="inlineCheckbox2">Southwest</label>
+         </div>
+         <div class="form-check form-check-inline">
+            <input class="form-check-input" name=airline type="checkbox" id="inlineCheckbox2" value="YV">
+            <label class="form-check-label" for="inlineCheckbox2">Mesa</label>
+         </div>
+         <div class="form-check form-check-inline">
+            <input class="form-check-input" name=airline type="checkbox" id="inlineCheckbox2" value="YX">
+            <label class="form-check-label" for="inlineCheckbox2">Midwest</label>
+         </div>
+         <h3>Airport Info<span class="badge badge-secondary"></span></h3>
+         <div class="row">
+            <div class="col">
+               <label for="exampleInputEmail1">Departing from: </label>
+               <input name=origin_city class="form-control" id="exampleInputEmail1">
+               <small id="emailHelp" class="form-text text-muted">Type in 3-letter airport code</small>
+            </div>
+            <div class="col">
+               <label for="exampleInputEmail1">Arriving at: </label>
+               <input name=dest_city class="form-control" id="exampleInputEmail1">
+               <small id="emailHelp" class="form-text text-muted">Type in 3-letter airport code</small>
+            </div>
+         </div>
+         <h3>Flight Info<span class="badge badge-secondary"></span></h3>
+         <div class="row">
+            <div class="col">
+               <label for="exampleInputEmail1">Departing at: </label>
+               <input name=dept_time class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+               <small id="emailHelp" class="form-text text-muted">Type in hours</small>
+            </div>
+            <div class="col">
+               <label for="exampleInputEmail1">Scheduled air time: </label>
+               <input name=air_time class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+               <small id="emailHelp" class="form-text text-muted">Type in hours</small>
+            </div>
+            <div class="col">
+               <label for="exampleInputEmail1">Domestic: </label>
+               <input class="form-control" type="text" placeholder="Yes" readonly>
+               <small id="emailHelp" class="form-text text-muted">We only support domestic predictions for now</small>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col">
+               <label for="exampleInputEmail1">Day of Week: </label>
+               <input name=day_of_week class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+               <small id="emailHelp" class="form-text text-muted">Type in number</small>
+            </div>
+            <div class="col">
+               <label for="exampleInputEmail1">Day of Month: </label>
+               <input name=day_of_month class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+               <small id="emailHelp" class="form-text text-muted">Type in number</small>
+            </div>
+            <div class="col">
+               <label for="exampleInputEmail1">Month: </label>
+               <input name=month class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+               <small id="emailHelp" class="form-text text-muted">Type in number</small>
+            </div>
+         </div>
+         <button type="submit" class="btn btn-primary mb-2" value="Add">Confirm</button>
+      </form>
+      <h1>Your flight is predicted to be <span class="badge badge-success">{{prediction_text}}</span></h1>
+      <h2>Probability of delay is  <span class="badge badge-info">{{prob_text}}</span></h2>
+   </body>
+</html>
